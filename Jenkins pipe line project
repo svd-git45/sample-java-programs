@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ("gitcheckout") {
             steps {
-                git branch: 'main', credentialsId: '9c56f087-a264-4fbe-a5ab-c2f912c5ca82', url: 'https://github.com/svd-git45/repo1.git'
+               git credentialsId: '9c56f087-a264-4fbe-a5ab-c2f912c5ca82', url: 'https://github.com/svd-git45/sample-java-programs.git'
             }
                 
         }
