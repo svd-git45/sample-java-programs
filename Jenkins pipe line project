@@ -17,6 +17,21 @@ pipeline {
             }
           
         }
+         stage ("deploy-dev") {
+            steps {
+                
+                sshagent(['1b6541c1-f57e-4889-a536-3dfa30e7f133']) {
+                 sh"""
+                 scp -o StrictHostKeyChecking=no target/pasad.war ubuntu@172.31.60.215:/home/ubuntu/apache-tomcat-8.5.70/webapps/
+                 ssh ubuntu@172.31.60.215 /home/ubuntu/apache-tomcat-8.5.70/bin/shutdown.sh
+                 ssh ubuntu@172.31.60.215 /home/ubuntu/apache-tomcat-8.5.70/bin/startup.sh
+                 """
+}
+                
+                
+            }
+          
+        }
            
           
     }
