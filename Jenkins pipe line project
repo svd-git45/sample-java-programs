@@ -2,17 +2,17 @@ pipeline {
     
     agent any
     stages {
-        stage ("gitcheckout") {
+        stage ("git checkout") {
             steps {
                git credentialsId: '9c56f087-a264-4fbe-a5ab-c2f912c5ca82', url: 'https://github.com/svd-git45/sample-java-programs.git'
             }
                 
         }
              
-           stage ("maven build") {
+           stage ("Maven build") {
             steps {
-                sh "mvn clen package"
-               sh "mv target/*.war target/prasad.war"
+                sh "mvn clean package"
+                sh "mv target/*.war target/prasad.war"
                 
             }
           
